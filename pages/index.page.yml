@@ -1,0 +1,5 @@
+page:
+  tmpl: tmpls/pages.hb
+data:
+  main:
+    tmpl: ./index.hb

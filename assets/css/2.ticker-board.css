@@ -1,0 +1,75 @@
+ul.board {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Nanum Gothic Coding', 'Roboto Mono', monospace;
+  overflow-x: hidden;
+  /* static for old browsers */
+  font-size: 3rem;
+  /* scale for new browsers */
+  font-size: calc(3 * var(--base-size));
+  max-width: min-content;
+  --base-size: min(1rem, 2vw);
+}
+@media screen and (max-width: 600px) {
+  ul.board {
+    overflow-x: scroll;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+ul.board li div.ticker-row {
+  display: flex;
+  padding: calc(var(--base-size) / 4);
+}
+span.ticker {
+  display: block;
+  background-size: cover;
+  background-position: center left;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* static for old browsers */
+  border-radius: 0.125rem;
+  padding: 0.25rem 0;
+  /* margin: 0 0.125rem; */
+  /* scale for modern browsers */
+  border-radius: calc(var(--base-size) / 8);
+  padding: calc(var(--base-size) / 4) calc(var(--base-size) / 2);
+  flex: auto 0 0;
+}
+span.ticker.animating {
+  animation: squeeze 0.075s ease-in-out infinite;
+}
+@keyframes squeeze {
+  50% {
+    transform: scaleY(0);
+  }
+}
+span.ticker,
+[dark] span.ticker {
+  color: hsl(60, 50%, 65%);
+  background-image: url(data:image/svg+xml;base64,PHN2ZwogIHZpZXdCb3g9IjAgMCAxMDAgMTUwIgogIHdpZHRoPSIxMHB4IgogIGhlaWdodD0iMjBweCIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgaWQ9InRpY2tlci1iYWNrZ3JvdW5kIgo+CiAgPHJlY3QKICAgIHg9IjEwIgogICAgeT0iNiIKICAgIHdpZHRoPSI4MCIKICAgIGhlaWdodD0iMTM4IgogICAgc3Ryb2tlPSJyZ2IoMTkzLCAxOTMsIDE5MykiCiAgICBzdHJva2Utd2lkdGg9IjMiCiAgICByeD0iNCIKICAgIGZpbGw9ImhzbCgyMTUsIDE1JSwgNSUpIgogIC8+CiAgPHJlY3QgeD0iMTUiIHk9Ijc0IiB3aWR0aD0iNzAiIGhlaWdodD0iMiIgZmlsbD0icmdiKDEyOCwgMTI4LCAxMjgpIiAvPgogIDxjaXJjbGUKICAgIGN4PSIxMCIKICAgIGN5PSI3NSIKICAgIHI9IjQiCiAgICBmaWxsPSJyZ2IoMTkzLCAxOTMsIDE5MykiCiAgICBzdHJva2U9Im5vbmUiCiAgICBzdHJva2Utd2lkdGg9IjIiCiAgLz4KICA8Y2lyY2xlCiAgICBjeD0iOTAiCiAgICBjeT0iNzUiCiAgICByPSI0IgogICAgZmlsbD0icmdiKDE5MywgMTkzLCAxOTMpIgogICAgc3Ryb2tlPSJub25lIgogICAgc3Ryb2tlLXdpZHRoPSIyIgogIC8+Cjwvc3ZnPg==);
+}
+[light] span.ticker {
+  color: hsl(240, 25%, 15%);
+  background-image: url(data:image/svg+xml;base64,PHN2ZwogIHZpZXdCb3g9IjAgMCAxMDAgMTUwIgogIHdpZHRoPSIxMHB4IgogIGhlaWdodD0iMjBweCIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgaWQ9InRpY2tlci1iYWNrZ3JvdW5kIgo+CiAgPHJlY3QKICAgIHg9IjEwIgogICAgeT0iNiIKICAgIHdpZHRoPSI4MCIKICAgIGhlaWdodD0iMTM4IgogICAgc3Ryb2tlPSJyZ2IoMTkzLCAxOTMsIDE5MykiCiAgICBzdHJva2Utd2lkdGg9IjMiCiAgICByeD0iNCIKICAgIGZpbGw9InJnYigyNDYsIDI0MywgMjI0KSIKICAvPgogIDxyZWN0IHg9IjE1IiB5PSI3NCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjIiIGZpbGw9InJnYigxMjgsIDEyOCwgMTI4KSIgLz4KICA8Y2lyY2xlCiAgICBjeD0iMTAiCiAgICBjeT0iNzUiCiAgICByPSI0IgogICAgZmlsbD0icmdiKDE5MywgMTkzLCAxOTMpIgogICAgc3Ryb2tlPSJyZ2IoMjQ2LCAyNDMsIDIyNCkiCiAgICBzdHJva2Utd2lkdGg9IjMiCiAgLz4KICA8Y2lyY2xlCiAgICBjeD0iOTAiCiAgICBjeT0iNzUiCiAgICByPSI0IgogICAgZmlsbD0icmdiKDE5MywgMTkzLCAxOTMpIgogICAgc3Ryb2tlPSJyZ2IoMjQ2LCAyNDMsIDIyNCkiCiAgICBzdHJva2Utd2lkdGg9IjMiCiAgLz4KPC9zdmc+);
+}
+@media (prefers-color-scheme: light) {
+  span.ticker {
+    color: hsl(240, 25%, 15%);
+    background-image: url(data:image/svg+xml;base64,PHN2ZwogIHZpZXdCb3g9IjAgMCAxMDAgMTUwIgogIHdpZHRoPSIxMHB4IgogIGhlaWdodD0iMjBweCIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgaWQ9InRpY2tlci1iYWNrZ3JvdW5kIgo+CiAgPHJlY3QKICAgIHg9IjEwIgogICAgeT0iNiIKICAgIHdpZHRoPSI4MCIKICAgIGhlaWdodD0iMTM4IgogICAgc3Ryb2tlPSJyZ2IoMTkzLCAxOTMsIDE5MykiCiAgICBzdHJva2Utd2lkdGg9IjMiCiAgICByeD0iNCIKICAgIGZpbGw9InJnYigyNDYsIDI0MywgMjI0KSIKICAvPgogIDxyZWN0IHg9IjE1IiB5PSI3NCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjIiIGZpbGw9InJnYigxMjgsIDEyOCwgMTI4KSIgLz4KICA8Y2lyY2xlCiAgICBjeD0iMTAiCiAgICBjeT0iNzUiCiAgICByPSI0IgogICAgZmlsbD0icmdiKDE5MywgMTkzLCAxOTMpIgogICAgc3Ryb2tlPSJyZ2IoMjQ2LCAyNDMsIDIyNCkiCiAgICBzdHJva2Utd2lkdGg9IjMiCiAgLz4KICA8Y2lyY2xlCiAgICBjeD0iOTAiCiAgICBjeT0iNzUiCiAgICByPSI0IgogICAgZmlsbD0icmdiKDE5MywgMTkzLCAxOTMpIgogICAgc3Ryb2tlPSJyZ2IoMjQ2LCAyNDMsIDIyNCkiCiAgICBzdHJva2Utd2lkdGg9IjMiCiAgLz4KPC9zdmc+);
+  }
+}

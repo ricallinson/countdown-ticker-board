@@ -1,0 +1,7 @@
+page:
+  tmpl: tmpls/pages.hb
+data:
+  title: "Countdown Ticker Board"
+  description: "Countdown Ticker Board."
+  tmpl: tmpls/layout.hb
+  lang: en

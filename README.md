@@ -1,1 +1,2 @@
-# countdown-ticker-board
+# Countdown Ticker Board
+
